@@ -48,7 +48,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <div class="controls">
-                                        <a href="" class="btn btn-common log-btn mb-10">Login with Google</a>
+                                        <a href="{{route('google')}}" class="btn btn-common log-btn mb-10">Login with Google</a>
                                         <a href="{{ route('facebook') }}" class="btn btn-common log-btn pull-right mb-10">Login with Facebook</a>
                                     </div>
                                 </div>

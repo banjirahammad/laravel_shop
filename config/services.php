@@ -35,6 +35,11 @@ return [
         'client_secret'=>"334bbd97bf6ddbca881dbd7b6a47b62b",
         'redirect'=>"https://shop.banjir-ahammad.com/callback/facebook",
     ],
+    'google' => [
+        'client_id'=>"562908713827-h919dnl0tbadhnc0rnov01p2prt7fb6p.apps.googleusercontent.com",
+        'client_secret'=>"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",
+        'redirect'=>"https://shop.banjir-ahammad.com/callback/google",
+    ],
 
 
 ];

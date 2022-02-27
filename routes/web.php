@@ -31,6 +31,8 @@ Route::prefix('/')->group(function (){
     Route::post('/register', [\App\Http\Controllers\Frontend\UserController::class, 'store']);
     Route::get('/login/facebook', [\App\Http\Controllers\LoginController::class, 'facebook'])->name('facebook');
     Route::get('/callback/facebook', [\App\Http\Controllers\LoginController::class, 'facebookRedirect']);
+    Route::get('/login/google', [\App\Http\Controllers\LoginController::class, 'google'])->name('google');
+    Route::get('/callback/google', [\App\Http\Controllers\LoginController::class, 'googleRedirect']);
 
     Route::get('/forgot', [\App\Http\Controllers\ForgotController::class, 'index'])->name('forgot');
     Route::post('/forgot', [\App\Http\Controllers\ForgotController::class, 'forgot']);

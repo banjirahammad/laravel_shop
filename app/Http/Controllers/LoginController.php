@@ -77,11 +77,41 @@ class LoginController extends Controller
                 'phone'  =>  '',
                 'address'  =>  '',
                 'client_id'  =>  $user->id,
-                'role'  =>  2,
                 'password'  =>  Hash::make('123456'),
             ]);
             if ($userCreate){
-                Auth::login($userFind);
+                Auth::login($userCreate);
+                return redirect()->route('customer.dashboard');
+            }else{
+                return redirect('home');
+            }
+
+
+        }
+
+    }
+
+    public function google(){
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function googleRedirect(){
+        $user = Socialite::driver('google')->user();
+        $userFind = User::where('client_id',$user->id)->first();
+        if ($userFind){
+            Auth::login($userFind);
+            return redirect()->route('customer.dashboard');
+        }else{
+            $userCreate = User::create([
+                'name'  =>  $user->name,
+                'email'  => $user->email,
+                'phone'  =>  '',
+                'address'  =>  '',
+                'client_id'  =>  $user->id,
+                'password'  =>  Hash::make('123456'),
+            ]);
+            if ($userCreate){
+                Auth::login($userCreate);
                 return redirect()->route('customer.dashboard');
             }else{
                 return redirect('home');
